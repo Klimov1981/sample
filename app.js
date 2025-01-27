@@ -7,3 +7,8 @@ let admin, name;
 name = "Джон";
 admin = name;
 alert(admin);
+
+// Задача 2 по переменным
+
+let ourPlanetName = "Земля"
+let currentUserName = "Герасим"
