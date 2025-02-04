@@ -31,3 +31,10 @@ function makeSlice(str, size) {
 }
 
 console.log(makeSlice("В JavaScript строка является примитивным типом данных (string).", 29));
+
+//Задача 3
+
+function isSubstr(str1, str2){
+  return str1.includes(str2) || str2.includes(str1)
+}
+console.log(isSubstr("xyz", "abcdef"))
