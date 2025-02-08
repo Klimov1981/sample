@@ -35,3 +35,33 @@ console.log(logger.getLogs()); // ["Первое сообщение", "Втор�
 
 // Попытка получить доступ к messages напрямую
 console.log(logger.messages); // undefined
+
+// задача 2
+
+function createRandomGenerator(min, max) {
+ // Проверяем типы и условия при создании генератора
+ if (typeof min !== "number" || typeof max !== "number") {
+   console.log("min и max должны быть числами")
+   return function () {
+     return null // Возвращаем функцию, которая ничего не делает
+   }
+ }
+ if (min >= max) {
+   console.log("min должно быть меньше max")
+   return function () {
+     return null // Возвращаем функцию, которая ничего не делает
+   }
+ }
+
+ // Возвращаем функцию для генерации случайных чисел
+ return function () {
+   return Math.floor(Math.random() * (max - min) + min)
+ }
+}
+
+const generateRandom = createRandomGenerator(1, 10)
+console.log(generateRandom()) // Случайное число от 1 до 10
+console.log(generateRandom()) // Другое случайное число от 1 до 10
+
+const invalidGenerator = createRandomGenerator("1", 10); // Ошибка: min и max должны быть числами
+const invalidGenerator2 = createRandomGenerator(10, 1); // Ошибка: min должно быть меньше max
